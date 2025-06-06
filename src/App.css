@@ -1,0 +1,104 @@
+/* src/App.css */
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Main application layout container */
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Wrapper for the map that allows it to grow */
+.map-wrapper {
+  flex: 1; /* This is the key: makes the map take up remaining space */
+  position: relative; /* For positioning children like the toggle button */
+  min-width: 0; /* Prevents flexbox overflow issues */
+}
+
+/* The actual div Mapbox attaches to */
+.map-container-inner {
+  width: 100%;
+  height: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  background-color: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  transition: width 0.3s ease-in-out, min-width 0.3s, max-width 0.3s;
+  z-index: 20;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide sidebar by setting width to 0 when closed */
+.sidebar.closed {
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.sidebar-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar.closed .sidebar-header,
+.sidebar.closed .sidebar-content {
+  display: none;
+}
+
+.sidebar-content {
+  padding: 1rem;
+}
+
+/* Button styles */
+.toggle-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: #f3f4f6;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.close-button:hover {
+  background-color: #f3f4f6;
+}
